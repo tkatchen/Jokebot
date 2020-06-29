@@ -2,9 +2,8 @@ const requireDir = require('require-dir');
 const config = require('../config.json')
 
 class CommandClass {
-  constructor(bot, mysql){
+  constructor(bot){
     this.bot = bot
-    this.mysql = mysql
     this.commands = requireDir('../Commands', {recurse : true , extensions: ['.js']})
   }
 
@@ -16,7 +15,7 @@ class CommandClass {
     console.log(commandString)
     let CommandClass = this.commands[commandString.toLowerCase()]
     if(!CommandClass) return
-    let Command = new CommandClass(this.bot, this.mysql)
+    let Command = new CommandClass(this.bot)
     Command.execute(message, args)
   }
 }
