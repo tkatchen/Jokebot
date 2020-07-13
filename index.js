@@ -7,7 +7,8 @@ const Matrix = require('./utils/DataTypes/Matrix')
 //const mysql = new SQLController()
 
 const config = require('./config.json')
-const CommandClass = require('./utils/CommandHandler')
+const CommandClass = require('./utils/CommandHandler');
+const Vector = require('./utils/DataTypes/Vector');
 const CommandHandler = new CommandClass(bot)
 
 let a = new Matrix([
@@ -27,6 +28,13 @@ let b = new Matrix([
 ])
 
 console.log(b.subtract(b))
+
+let c = new Vector([2, 3, 4])
+let d = new Vector([5, 6, 7])
+
+console.log(c.crossProduct(d))
+
+console.log(c.directions)
 
 bot.on('ready', () => {
   
